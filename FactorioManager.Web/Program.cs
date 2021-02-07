@@ -1,7 +1,7 @@
 using System;
 using System.IO;
+using FactorioManager.Core;
 using FactorioManager.Core.Wiring;
-using FactorioManager.Web.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,13 +9,19 @@ using Microsoft.Extensions.Logging;
 
 namespace FactorioManager.Web {
   public class Program {
-    public static void Main(String[] args) {
+    /// <summary>
+    /// Main entry point.
+    /// </summary>
+    public static void Main() {
       Bootstrap();
 
-      IWebHost host = new WebHostBuilder()
-        .UseKestrel()
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<ServerSetup>()
+      IHost host = Host
+        .CreateDefaultBuilder()
+        .ConfigureWebHostDefaults(server => {
+          server
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<ServerSetup>();
+        })
         .Build();
 
       // Run startup initializations
@@ -26,19 +32,23 @@ namespace FactorioManager.Web {
         logger.LogInformation("User dir: {Dir}", Running.BaseDir);
 
         services.GetRequiredService<IStart>()
-          .InitBaseDir();
+          .InitBaseDir()
+          .InitUserConfig();
       }
 
       // Run host
       host.Run();
     }
 
+    /// <summary>
+    /// Initialize the bare minimum that is required for the app to start up.
+    /// </summary>
     public static void Bootstrap() {
       // BaseDir must be set as early as possible, since a lot of things rely on BasePath()
-      Running.BaseDir = Path.Combine(Running.InDebug
-          ? new DirectoryInfo(AppContext.BaseDirectory).Parent!.Parent!.Parent!.Parent!.FullName
-          : AppContext.BaseDirectory, "UserData"
-      );
+      String path = Running.InDebug
+        ? new DirectoryInfo(AppContext.BaseDirectory).Parent!.Parent!.Parent!.Parent!.FullName
+        : AppContext.BaseDirectory;
+      Running.BaseDir = Path.Combine(path, "UserData");
     }
   }
 }

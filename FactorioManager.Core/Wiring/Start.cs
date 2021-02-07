@@ -1,25 +1,38 @@
 ﻿using System.IO.Abstractions;
-using FactorioManager.Web.Core;
+using FactorioManager.Core.Data;
+using FactorioManager.Core.Infrastructure;
 using Microsoft.Extensions.Logging;
 
 namespace FactorioManager.Core.Wiring {
+  /// <inheritdoc />
   public class Start : IStart {
     private readonly ILogger<Start> _logger;
     private readonly IFileSystem _fs;
+    private readonly IUserConfigManager _userConfig;
 
-    public Start(ILogger<Start> logger, IFileSystem fs) {
+
+    public Start(ILogger<Start> logger, IFileSystem fs, IUserConfigManager userConfig) {
       this._logger = logger;
       this._fs = fs;
+      this._userConfig = userConfig;
     }
 
 
-    /// <summary>
-    /// Make sure <see cref="Running.BaseDir"/> exists and is accessible.
-    /// </summary>
-    public void InitBaseDir() {
-      if (this._fs.Directory.Exists(Running.BaseDir)) return;
+    /// <inheritdoc />
+    public IStart InitBaseDir() {
+      if (this._fs.Directory.Exists(Running.BaseDir)) return this;
+      this._logger.LogInformation("User data directory not found, creating: {Dir}", Running.BaseDir);
       this._fs.Directory.CreateDirectory(Running.BaseDir);
-      this._logger.LogInformation("Created: {Dir}", Running.BaseDir);
+      return this;
+    }
+
+    /// <inheritdoc />
+    public IStart InitUserConfig() {
+      this.InitBaseDir();
+      if (!this._userConfig.ConfigExists) return this;
+      this._logger.LogInformation("User configuration not found, writing defaults.");
+      this._userConfig.Save(new UserConfig());
+      return this;
     }
   }
 }

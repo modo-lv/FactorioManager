@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace FactorioManager.Web.Core {
+namespace FactorioManager.Core {
   /// <summary>
   /// Globally available runtime information.
   /// </summary>
