@@ -1,6 +1,6 @@
 ﻿using System.IO.Abstractions;
-using FactorioManager.Core.Data;
 using FactorioManager.Core.Infrastructure;
+using FactorioManager.Core.Main.Data;
 using Microsoft.Extensions.Logging;
 
 namespace FactorioManager.Core.Wiring {

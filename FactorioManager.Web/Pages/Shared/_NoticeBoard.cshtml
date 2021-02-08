@@ -1,0 +1,15 @@
+﻿@using FactorioManager.Core.Infrastructure.Notices
+
+@namespace FactorioManager.Web.Pages.Shared
+
+@inject INoticeBoard NoticeBoard
+
+@if (NoticeBoard.Notices.Any()) {
+  <div id="NoticeBoard">
+    @foreach (Notice n in NoticeBoard.RemoveAllTransient()) {
+      <div class="notice">
+        @n.Message
+      </div>
+    }
+  </div>
+}

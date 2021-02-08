@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FactorioManager.Core.Data {
+namespace FactorioManager.Core.Main.Data {
   /// <summary>
   /// All user configuration settings for the app.
   /// </summary>

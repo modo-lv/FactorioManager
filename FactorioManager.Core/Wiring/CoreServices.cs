@@ -1,6 +1,7 @@
 ﻿using System.IO.Abstractions;
-using FactorioManager.Core.Data;
 using FactorioManager.Core.Infrastructure;
+using FactorioManager.Core.Infrastructure.Notices;
+using FactorioManager.Core.Main.Data;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FactorioManager.Core.Wiring {
@@ -14,6 +15,8 @@ namespace FactorioManager.Core.Wiring {
       services.AddSingleton<IStart, Start>();
       services.AddSingleton<IFileSystem, FileSystem>();
       services.AddSingleton<IUserConfigManager, UserConfigManager>();
+
+      services.AddSingleton<INoticeBoard, NoticeBoard>();
 
       // ReSharper disable once RedundantTypeArgumentsOfMethod
       services.AddScoped<UserConfig>(_ => _

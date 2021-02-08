@@ -1,5 +1,5 @@
 ﻿using System;
-using FactorioManager.Core.Data;
+using FactorioManager.Core.Main.Data;
 
 namespace FactorioManager.Core.Infrastructure {
   /// <summary>
