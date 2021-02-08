@@ -31,9 +31,9 @@ namespace FactorioManager.Web {
         var logger = services.GetRequiredService<ILogger<Program>>();
         logger.LogInformation("User dir: {Dir}", Running.BaseDir);
 
-        services.GetRequiredService<IStart>()
-          .InitBaseDir()
-          .InitUserConfig();
+        var start = services.GetRequiredService<IStart>();
+        start.InitBaseDir();
+        start.InitUserConfig();
       }
 
       // Run host

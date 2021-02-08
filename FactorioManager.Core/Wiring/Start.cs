@@ -29,7 +29,7 @@ namespace FactorioManager.Core.Wiring {
     /// <inheritdoc />
     public IStart InitUserConfig() {
       this.InitBaseDir();
-      if (!this._userConfig.ConfigExists) return this;
+      if (this._userConfig.ConfigExists) return this;
       this._logger.LogInformation("User configuration not found, writing defaults.");
       this._userConfig.Save(new UserConfig());
       return this;

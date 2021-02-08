@@ -1,3 +1,11 @@
 ﻿@page
 @namespace FactorioManager.Web.Pages
 @model Config
+
+<form method="post">
+  <label>
+    Factorio user home:
+    <input type="text" asp-for="UserConfig.GameUserHome" />
+  </label>
+  <button type="submit">Save</button>
+</form>

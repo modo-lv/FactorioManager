@@ -14,14 +14,14 @@ namespace FactorioManager.Core.Main.Data {
     /// Mac: ~/Library/Application Support/factorio
     /// Linux: ~/.factorio
     /// </remarks>
-    public String GameUserHome { get; }
+    public String GameUserHome { get; init; }
 
 
     /// <summary>
     /// Constructor.
     /// </summary>
-    public UserConfig(String gameUserHome = "") {
-      this.GameUserHome = gameUserHome;
+    public UserConfig() {
+      this.GameUserHome = "";
     }
 
 
@@ -42,7 +42,7 @@ namespace FactorioManager.Core.Main.Data {
       return other is { } o && o.GameUserHome == this.GameUserHome;
     }
     
-    public static Boolean operator ==(UserConfig one, UserConfig other) => one.Equals(other);
-    public static Boolean operator !=(UserConfig one, UserConfig other) => !(one == other);
+    public static Boolean operator ==(UserConfig? one, UserConfig? other) => Object.Equals(one, other);
+    public static Boolean operator !=(UserConfig? one, UserConfig? other) => !(one == other);
   }
 }
