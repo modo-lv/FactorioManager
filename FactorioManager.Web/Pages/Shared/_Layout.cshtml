@@ -1,19 +1,29 @@
-﻿<!DOCTYPE html>
+﻿@model FactorioManager.Web.Infrastructure.IPageWithTitle
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Factorio manager</title>
+  <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
 
-<partial name="_NoticeBoard" />
+<header>
+  <h1>Factorio manager</h1>
+  <partial name="_NoticeBoard"/>
+  <nav>
+    <ul>
+      <li active-in-page="/Index"><a asp-page="/Index">Welcome</a></li>
+      <li active-in-page="/Config"><a asp-page="/Config">Config</a></li>
+    </ul>
+  </nav>
+</header>
 
-<nav>
-  <ul>
-    <li><a href="@Url.Page("Config")">Config</a></li>
-  </ul>
-</nav>
-
-@RenderBody()
+<main class="panel">
+  <h1>@Model.PageTitle</h1>
+  
+  @RenderBody()
+</main>
 
 </body>
 </html>

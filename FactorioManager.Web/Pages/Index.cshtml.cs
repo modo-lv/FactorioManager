@@ -1,16 +1,12 @@
-﻿using FactorioManager.Core.Infrastructure.Notices;
+﻿using System;
+using FactorioManager.Web.Infrastructure;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FactorioManager.Web.Pages {
-  public class IndexModel : PageModel {
-    private readonly INoticeBoard _nb;
-    
-    public IndexModel(INoticeBoard nb) {
-      this._nb = nb;
+  public class IndexModel : PageModel, IPageWithTitle {
+    public String PageTitle { get; } = "Welcome";
+    public void OnGet() {
     }
 
-    public void OnGet() {
-      this._nb.Add(new Notice("Test"));
-    }
   }
 }
