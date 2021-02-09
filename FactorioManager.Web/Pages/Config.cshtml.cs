@@ -14,7 +14,7 @@ namespace FactorioManager.Web.Pages {
       this._userConfigManager = userConfigManager;
     }
 
-    public String PageTitle { get; } = "Config";
+    public String PageTitle { get; } = "Settings";
 
     [BindProperty]
     public UserConfig? UserConfig { get; set; }

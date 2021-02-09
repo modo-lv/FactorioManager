@@ -2,11 +2,13 @@
 @namespace FactorioManager.Web.Pages
 @model Config
 
-<form method="post">
-  <label>
-    Factorio user home:
-    <input type="text" asp-for="@(Model.UserConfig!.GameUserHome)" />
-  </label>
-  <button type="button" class="AutofillGameHome" data-target="#@Html.IdFor(m => m.UserConfig.GameUserHome)">⚡</button>
-  <button type="submit">Save</button>
-</form>
+<div class="content panel">
+  <form method="post">
+    <div class="row">
+      <label asp-for="UserConfig.GameUserHome">Factorio user home:</label>
+      <input type="text" asp-for="UserConfig.GameUserHome"/>
+      <button type="button" class="AutofillGameHome" data-target="#@Html.IdFor(m => m.UserConfig.GameUserHome)">⚡</button>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</div>

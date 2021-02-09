@@ -33,9 +33,38 @@ a {
   align-items: baseline;
 }
 
+$outer-shadow:
+  // Top
+  #101010 0 -1px 1px 0px,
+  // Bottom
+  #3B3635 0 1px 1px 0px,
+  // Left
+  #3B3635 -1px 0 1px 0px,
+  // Right
+  #3B3635 1px 0 1px 0px;
+
+
 input[type=text] {
   flex-grow: 1;
   padding: 0 0.2em 0.1em 0.2em;
+  background-color: $input-bg;
+  border-radius: 3px;
+  border: none;
+  box-shadow: $outer-shadow,
+    // Top
+    #3B3635 inset 0 1px 1px 0px,
+    // Right
+    #3B3635 inset 1px 0 1px 0px,
+    // Left
+    #3B3635 inset -1px 0 1px 0px,
+    // Bottom
+    #646464 inset 0 -2px 1px 0px;
+
+  &:focus {
+    outline: none;
+    //box-shadow: #AE8F62 inset 0 0 0 1px;
+    background-color: $input-bg-active;
+  }
 }
 
 label + input {

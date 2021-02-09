@@ -1,3 +1,69 @@
+/* titillium-web-regular - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-regular.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-italic - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: italic;
+  font-weight: 400;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-italic.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-600 - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-600.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-600italic - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: italic;
+  font-weight: 600;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-600italic.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-600italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-700 - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-700.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-700italic - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-700italic.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-700italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* titillium-web-900 - latin */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 900;
+  src: local(""), url("/style/fonts/titillium-web/titillium-web-v9-latin-900.woff2") format("woff2"), url("/style/fonts/titillium-web/titillium-web-v9-latin-900.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, table, input, textarea {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 100%;
+}
+
 body {
   background-color: #201810;
   color: #fff;
@@ -7,18 +73,57 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffe6c0;
 }
 
+h2 {
+  font-size: 120%;
+}
+
 a {
   color: #7dcaed;
   text-decoration: none;
 }
 
+.row {
+  display: flex;
+  align-items: baseline;
+}
+
+input[type=text] {
+  flex-grow: 1;
+  padding: 0 0.2em 0.1em 0.2em;
+  background-color: #828282;
+  border-radius: 3px;
+  border: none;
+  box-shadow: #101010 0 -1px 1px 0px, #3B3635 0 1px 1px 0px, #3B3635 -1px 0 1px 0px, #3B3635 1px 0 1px 0px, #3B3635 inset 0 1px 1px 0px, #3B3635 inset 1px 0 1px 0px, #3B3635 inset -1px 0 1px 0px, #646464 inset 0 -2px 1px 0px;
+}
+input[type=text]:focus {
+  outline: none;
+  background-color: #F0DAB4;
+}
+
+label + input {
+  margin-left: 1rem;
+}
+
 .panel {
   background-color: #313031;
-  box-shadow: inset 3px 0 3px -3px #201815, inset 2px 0 2px -2px #201815, inset 1px 0 1px -1px #201815, inset 0 3px 3px -3px #8f8c8b, inset 0 2px 2px -2px #8f8c8b, inset 0 1px 1px -1px #8f8c8b, inset -3px 0 3px -3px #201815, inset -2px 0 2px -2px #201815, inset -2px 0 1px -1px #201815, inset 0 -3px 3px -3px #000, inset 0 -2px 2px -2px #000, inset 0 -1px 1px -1px #000, 0 0 2px 0 #201815, 0 0 4px 0 #201815;
-  border: none;
-  padding: 12px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  box-shadow: #605e5d 0 2px 2px -1px inset, #251e1c 2px 0 2px -1px inset, #000000 0 -2px 2px -1px inset, #251e1c -2px 0 2px -2px inset;
+  border-radius: 1px;
+  padding: 10px;
+}
+.panel > .inlay {
+  background: #242424;
+  box-shadow: #000 0 -1px 2px 0px, #0E0D0E 0 1px 2px 0 inset, #0E0D0E 1px 0 2px 0 inset, #0E0D0E -1px 0 2px 0 inset, #676463 0 -1px 0px 1px inset;
+  padding: 2px;
+  padding-top: 1rem;
+}
+.panel.content {
+  box-shadow: #676463 0 2px 2px -1px inset, #251e1c 2px 0 2px -1px inset, #000000 0 -2px 2px -1px inset, #251e1c -2px 0 2px -2px inset;
+  background-color: #404040;
+  border-radius: 1px;
+}
+
+body {
+  padding: 1rem;
 }
 
 header > h1 {
@@ -56,12 +161,12 @@ header > nav > ul li:not(.active) a:hover, header > nav > ul li:not(.active) a:f
 main {
   margin-top: 0 !important;
 }
-main > h1 {
-  font-weight: 900;
-  margin-bottom: 12px;
-  cursor: default;
-  font-size: 120%;
-  line-height: 1.25;
+main.panel {
+  padding-top: 0;
+  overflow: auto;
+}
+main.panel > h2 {
+  margin: 0.25em 0;
 }
 
 /*# sourceMappingURL=main.css.map */

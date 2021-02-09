@@ -1,5 +1,9 @@
 @import "_colors.scss";
 
+body {
+  padding: 1rem;
+}
+
 header {
   & > h1 {
     color: $orange;
@@ -45,12 +49,12 @@ header {
 
 main {
   margin-top: 0 !important;
+  &.panel {
+    padding-top: 0;
+    overflow: auto;
 
-  & > h1 {
-    font-weight: 900;
-    margin-bottom: 12px;
-    cursor: default;
-    font-size: 120%;
-    line-height: 1.25;
+    & > h2 {
+      margin: 0.25em 0;
+    }
   }
 }
