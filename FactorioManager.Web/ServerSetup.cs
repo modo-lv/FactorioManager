@@ -22,6 +22,7 @@ namespace FactorioManager.Web {
         ;
 
       services.AddRazorPages();
+      services.AddControllers();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,9 +30,10 @@ namespace FactorioManager.Web {
       app
         .UseStaticFiles()
         .UseRouting()
-        .UseEndpoints(_ => _
-          .MapRazorPages()
-        );
+        .UseEndpoints(_ => {
+          _.MapRazorPages();
+          _.MapControllers();
+        });
     }
   }
 }

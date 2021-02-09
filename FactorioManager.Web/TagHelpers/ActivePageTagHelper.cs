@@ -13,7 +13,7 @@ namespace FactorioManager.Web.TagHelpers {
   public class ActivePageTagHelper : TagHelper {
     /// <summary>Path to the Razor page in which this element should be <c>.active</c>.</summary>
     [HtmlAttributeName("active-in-page")]
-    public String Page { get; set; }
+    public String? Page { get; set; }
 
     [HtmlAttributeNotBound]
     [ViewContext]

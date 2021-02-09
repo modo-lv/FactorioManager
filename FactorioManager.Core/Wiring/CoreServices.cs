@@ -18,6 +18,8 @@ namespace FactorioManager.Core.Wiring {
 
       services.AddSingleton<INoticeBoard, NoticeBoard>();
 
+      services.AddSingleton<IGameReader, GameReader>();
+
       // ReSharper disable once RedundantTypeArgumentsOfMethod
       services.AddScoped<UserConfig>(_ => _
         .GetRequiredService<IUserConfigManager>()
