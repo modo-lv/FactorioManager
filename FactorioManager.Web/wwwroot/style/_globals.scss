@@ -1,0 +1,43 @@
+@import "_colors.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, table, input, textarea {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 100%;
+}
+
+body {
+  background-color: #201810;
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffe6c0;
+}
+
+h2 {
+  font-size: 120%;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+}
+
+input[type=text] {
+  flex-grow: 1;
+  padding: 0 0.2em 0.1em 0.2em;
+}
+
+label + input {
+  margin-left: 1rem;
+}
